@@ -20,19 +20,6 @@ const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [editTestimonial, setEditTestimonial] = useState(null);
 
-  // const fetchTestimonials = async () => {
-  //   try {
-  //     const querySnapshot = await getDocs(collection(db, "testimonials"));
-  //     const testimonialsList = querySnapshot.docs.map((doc) => ({
-  //       id: doc.id,
-  //       ...doc.data(),
-  //     }));
-  //     setTestimonials(testimonialsList);
-  //   } catch (error) {
-  //     console.error("Error fetching testimonials:", error);
-  //   }
-  // };
-
   const fetchTestimonials = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "testimonials"));
@@ -50,53 +37,19 @@ const Testimonial = () => {
     fetchTestimonials();
   }, []);
 
-  // const handleAddTestimonial = (newTestimonial) => {
-  //   setTestimonials((prevTestimonials) => [
-  //     ...prevTestimonials,
-  //     newTestimonial,
-  //   ]);
-  //   fetchTestimonials();
-  // };
-
   const handleAddTestimonial = () => {
     fetchTestimonials();
   };
 
   const handleEditTestimonial = (testimonial) => {
     setEditTestimonial(testimonial);
-    setOpenAddNewTestimonial(true);
+    setOpenAddNewTestimonial(true); // Open the modal for editing
   };
-
-  // const handleUpdateTestimonial = async (updatedTestimonial) => {
-  //   try {
-  //     const testimonialDocRef = doc(db, "testimonials", updatedTestimonial.id);
-  //     if (
-  //       editTestimonial.image &&
-  //       updatedTestimonial.image !== editTestimonial.image
-  //     ) {
-  //       const oldImageRef = ref(storage, editTestimonial.image);
-  //       await deleteObject(oldImageRef);
-  //       console.log("Old image deleted successfully");
-  //     }
-
-  //     await updateDoc(testimonialDocRef, {
-  //       ...updatedTestimonial,
-  //       image: updatedTestimonial.image || "",
-  //     });
-
-  //     setOpenAddNewTestimonial(false);
-  //     setEditTestimonial(null);
-  //     fetchTestimonials();
-  //   } catch (error) {
-  //     console.error("Error updating testimonial:", error);
-  //   }
-  // };
 
   const handleUpdateTestimonial = async (updatedTestimonial) => {
     try {
       const testimonialDocRef = doc(db, "testimonials", updatedTestimonial.id);
 
-      // Handle image deletion and update
       if (
         editTestimonial.image &&
         updatedTestimonial.image !== editTestimonial.image
@@ -113,8 +66,6 @@ const Testimonial = () => {
 
       setOpenAddNewTestimonial(false);
       setEditTestimonial(null);
-
-      // Fetch the updated list after an edit
       fetchTestimonials();
     } catch (error) {
       console.error("Error updating testimonial:", error);
@@ -152,8 +103,8 @@ const Testimonial = () => {
           <NewTestimonial
             onCancel={() => setOpenAddNewTestimonial(false)}
             onAddTestimonial={handleAddTestimonial}
-            testimonialToEdit={editTestimonial}
-            onUpdateTestimonial={handleUpdateTestimonial}
+            testimonialToEdit={editTestimonial} // Pass the testimonial to be edited
+            onUpdateTestimonial={handleUpdateTestimonial} // Handle the update
           />
         )}
         {openSidebar && <MobileSidebar />}
@@ -180,7 +131,7 @@ const Testimonial = () => {
             <button
               type="button"
               onClick={() => {
-                setEditTestimonial(null);
+                setEditTestimonial(null); // Ensure the form is reset
                 setOpenAddNewTestimonial(true);
               }}
               className="w-[8rem] h-full bg-blue-500 rounded-md flex justify-center items-center cursor-pointer text-white"
