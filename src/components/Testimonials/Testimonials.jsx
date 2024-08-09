@@ -134,6 +134,11 @@ const Testimonial = () => {
             </p>
           </div>
         </div>
+         <div className="w-full h-12 flex items-center justify-between">
+          <div className="w-fit h-full">
+            <h1 className="font-bold text-[1.5rem]">Testimonials</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
         <div className="flex flex-col w-full h-full">
           <div className="w-full h-[4rem] flex justify-end">
             <button
