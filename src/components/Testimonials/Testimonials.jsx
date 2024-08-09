@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import Sidebar from "../global/Sidebar";
+import { useState, useEffect } from "react";
 import assets from "../../assets/assets";
-import NewTestimonial from "./NewTestimonial";
+import Sidebar from "../global/Sidebar";
 import MobileSidebar from "../global/MobileSidebar";
 
 import {
