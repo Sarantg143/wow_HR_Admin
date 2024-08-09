@@ -4,9 +4,6 @@ import assets from "../../assets/assets";
 import NewTestimonial from "./NewTestimonial";
 import MobileSidebar from "../global/MobileSidebar";
 
-
-import MobileSidebar from "../global/MobileSidebar";
-
 import {
   db,
   collection,
