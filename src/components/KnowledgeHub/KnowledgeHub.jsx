@@ -63,7 +63,17 @@ const KnowledgeHub = () => {
             setedit={setedit}
             defaultEditData={defaultEditData}
             setDefaultEditData={setDefaultEditData}
-            onCancel={() => setopenAddnewMentor(false)}
+            onCancel={() => {
+              setopenAddnewMentor(false);
+              setDefaultEditData({
+                type: "",
+                sourceType: "",
+                description: "",
+                mediaFile: null,
+                mediaUrl: "",
+              });
+              setedit(false);
+            }}
           />
         )}
         {openSidebar && <MobileSidebar />}
