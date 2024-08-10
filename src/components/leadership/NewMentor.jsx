@@ -65,6 +65,18 @@ const NewMentor = ({ onCancel, onAddMentor, mentorToEdit }) => {
   }, [mentorData.profileImg]);
 
   const handleUploadMentor = async () => {
+    if (
+      !mentorData.name ||
+      !mentorData.job ||
+      !mentorData.leaderType ||
+      !mentorData.location ||
+      !mentorData.description ||
+      !mentorData.profileImg
+    ) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
     try {
       let uploadedImageUrl = imageUrl;
 
@@ -121,13 +133,29 @@ const NewMentor = ({ onCancel, onAddMentor, mentorToEdit }) => {
               value={mentorData.job}
               onChange={(e) => handleInput("job", e.target.value)}
             />
-            <input
+            {/* <input
               type="text"
               className="w-full h-10 pl-2 font-medium border-none rounded-md outline-none bg-slate-300"
               placeholder="Leader Type *"
               value={mentorData.leaderType}
               onChange={(e) => handleInput("leaderType", e.target.value)}
-            />
+            /> */}
+
+            <select
+              className="w-full h-10 pl-2 font-medium border-none rounded-md outline-none bg-slate-300"
+              placeholder="Leader Type *"
+              value={mentorData.leaderType}
+              onChange={(e) => handleInput("leaderType", e.target.value)}
+              // onChange={(e) =>
+              //   setEventData({ ...eventData, type: e.target.value })
+              // }
+            >
+              <option value="" disabled hidden>
+                Select Type
+              </option>
+              <option value="Mentor">Mentor</option>
+              <option value="Core Team">Core Team</option>
+            </select>
             <input
               type="text"
               className="w-full h-10 pl-2 font-medium border-none rounded-md outline-none bg-slate-300"
