@@ -119,7 +119,7 @@ const NewKnowledge = ({
       <div className="w-full lg:w-[90%] h-full md:h-fit bg-white rounded-md p-4 md:p-8">
         <div className="flex flex-wrap justify-between w-full gap-4 mt-12 h-fit">
           <div className="w-full md:w-[50%] h-fit flex flex-col gap-7 ">
-            <input
+            {/* <input
               type="text"
               className="w-full h-10 pl-2 font-medium border-none rounded-md outline-none bg-slate-300"
               placeholder="Type"
@@ -127,11 +127,27 @@ const NewKnowledge = ({
               onChange={(e) =>
                 setKnowledgeData({ ...knowledgeData, type: e.target.value })
               }
-            />
+            /> */}
+
+            <select
+              className="w-full h-10 pl-2 font-medium border-none rounded-md outline-none bg-slate-300"
+              placeholder="Leader Type *"
+              value={knowledgeData.type}
+              onChange={(e) =>
+                setKnowledgeData({ ...knowledgeData, type: e.target.value })
+              }
+            >
+              <option value="" disabled hidden>
+                Select Type
+              </option>
+              <option value="pepTalks">Pep Talks</option>
+              <option value="podcast">Podcast</option>
+              <option value="LearningPrograms">Learning Programs</option>
+            </select>
             <input
               type="text"
               className="w-full h-10 pl-2 font-medium border-none rounded-md outline-none bg-slate-300"
-              placeholder="Source Type"
+              placeholder="Title"
               value={knowledgeData.sourceType}
               onChange={(e) =>
                 setKnowledgeData({
