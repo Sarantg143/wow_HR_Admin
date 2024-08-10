@@ -150,6 +150,20 @@ const Testimonial = () => {
               }}
               className="w-[8rem] h-full bg-blue-500 rounded-md flex justify-center items-center cursor-pointer text-white"
             >
+                <div className="flex flex-wrap items-center justify-between w-full h-10 gap-4 mt-8 md:mt-0">
+  //new
+                  <div className="bg-[#edededde] w-[20rem] h-[90%] px-2 flex items-center gap-1 border rounded-md text-white border-blue-200">
+              <img
+                src={assets.Img.Search}
+                alt="search"
+                className="object-contain w-4 h-4"
+              />
+              <input
+                type="text"
+                placeholder="Find"
+                className="flex-1 pl-2 placeholder-gray-400 bg-transparent border-none outline-none"
+              />
+            </div>
               <p>Add New Testimonial</p>
             </button>
           </div>
