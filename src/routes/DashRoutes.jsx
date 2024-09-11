@@ -5,6 +5,7 @@ import Testimonials from "../components/Testimonials/Testimonials";
 import Events from "../components/events/Events";
 import KnowledgeHub from "../components/KnowledgeHub/KnowledgeHub";
 import LoginForm from "../components/auth/LoginForm";
+import BusinessPartners from "../components/BusinessPartners/BusinessPartners";
 
 const DashRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const DashRoutes = () => {
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/events" element={<Events />} />
       <Route path="/knowledgeHub" element={<KnowledgeHub />} />
+      <Route path="/admin/partners" element={<BusinessPartners />} />
     </Routes>
   );
 };
