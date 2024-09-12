@@ -107,6 +107,28 @@ const Sidebar = () => {
           Knowledge Hub
         </p>
       </div>
+      <div
+        onClick={() => navigate("/partners")}
+        className={`w-full h-11 cursor-pointer ${pathMatch("/partners") && "bg-[#2984FF]"
+          }  p-1 rounded-lg flex items-center pl-4`}
+      >
+        <img
+          src={
+            pathMatch("/partners")
+              ? assets.Img.Knowledge_white
+              : assets.Img.Knowledge_gray
+          }
+          alt="icon"
+          className="w-10 h-7 object-contain"
+        />
+        <p
+          className={`${pathMatch("/partners") ? "text-white" : "text-gray-500"
+            }`}
+        >
+          Business Partners
+        </p>
+      </div>
+    
     </div>
   );
 };

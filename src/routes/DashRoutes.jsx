@@ -15,7 +15,7 @@ const DashRoutes = () => {
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/events" element={<Events />} />
       <Route path="/knowledgeHub" element={<KnowledgeHub />} />
-      <Route path="/admin/partners" element={<BusinessPartners />} />
+      <Route path="/partners" element={<BusinessPartners />} />
     </Routes>
   );
 };
